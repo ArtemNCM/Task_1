@@ -1,0 +1,7 @@
+[tool.pytest.ini_options]
+testpaths = ["01/tests", "02/tests", "tests"]
+pythonpath = ["01/src", "02/src", "."]
+
+[tool.black]
+target-version = ["py311"]
+line-length = 88

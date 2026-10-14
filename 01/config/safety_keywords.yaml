@@ -1,0 +1,28 @@
+self_harm:
+  en: ['\b(kill|hurt) myself\b', '\bend my (own )?life\b', '\bsuicid\w*']
+  uk: ['вбити себе', 'самогуб', 'покінчити з життям']
+  ru: ['убить себя', 'самоубий', 'покончить с жизнью']
+  es: ['matarme', 'suicid', 'quitarme la vida']
+  ar: ['أقتل نفسي', 'انتحار']
+  pl: ['zabić się', 'samobój', 'odebrać sobie życie']
+threat_of_violence:
+  en: ['\bi (will|am going to) (kill|hurt|punch|shoot) (you|him|her|them)\b']
+  uk: ['я тебе вб', 'я його вб']
+  ru: ['я тебя убью', 'я его убью']
+  es: ['te voy a matar', 'voy a golpear']
+  ar: ['سأقتلك', 'سأضربك']
+  pl: ['zabiję cię', 'pobiję']
+legal_threat:
+  en: ['\b(lawyer|solicitor|sue|regulator)\b']
+  uk: ['адвокат', 'подам до суду']
+  ru: ['адвокат', 'подам в суд']
+  es: ['abogado', 'demandar']
+  ar: ['محامي', 'سأقاضي']
+  pl: ['prawnik', 'pozew']
+chargeback_mentioned:
+  en: ['\bchargeback\b', '\bdispute.{0,30}(bank|card)\b']
+  uk: ['чарджбек', 'оскарж.{0,30}банк']
+  ru: ['чарджбэк', 'оспор.{0,30}банк']
+  es: ['contracargo']
+  ar: ['اعتراض.{0,30}البنك']
+  pl: ['obciążenie zwrotne', 'chargeback']

@@ -1,0 +1,97 @@
+{
+  "base_url": "https://openrouter.ai/api/v1",
+  "models_endpoint": "https://openrouter.ai/api/v1/models",
+  "endpoint_verified": true,
+  "models":
+    {
+      "haiku-5-5":
+        {
+          "id": "haiku-5-5",
+          "provider": "openrouter",
+          "slug": "anthropic/claude-haiku-5.5",
+          "verified": true,
+          "supports_temperature": false,
+          "params": {},
+          "extra_body": { "reasoning": { "effort": "low" } },
+          "max_output_tokens": 4096,
+          "repair_max_output_tokens": 4096,
+          "price_key": "haiku-5-5",
+          "structured_output": true,
+        },
+      "gpt-6-luna":
+        {
+          "id": "gpt-6-luna",
+          "provider": "openrouter",
+          "slug": "openai/gpt-6-luna",
+          "verified": true,
+          "supports_temperature": false,
+          "params": { "seed": 42 },
+          "extra_body": { "reasoning": { "effort": "low" } },
+          "max_output_tokens": 4096,
+          "repair_max_output_tokens": 4096,
+          "price_key": "gpt-6-luna",
+          "structured_output": true,
+        },
+      "gemini-3-8-flash":
+        {
+          "id": "gemini-3-8-flash",
+          "provider": "openrouter",
+          "slug": "google/gemini-3.8-flash",
+          "verified": true,
+          "supports_temperature": true,
+          "params": { "temperature": 0, "seed": 42 },
+          "extra_body": { "reasoning": { "effort": "low" } },
+          "max_output_tokens": 4096,
+          "repair_max_output_tokens": 4096,
+          "price_key": "gemini-3-8-flash",
+          "structured_output": true,
+        },
+      "sonnet-5-5":
+        {
+          "id": "sonnet-5-5",
+          "provider": "openrouter",
+          "slug": "anthropic/claude-sonnet-5.5",
+          "verified": true,
+          "supports_temperature": false,
+          "params": {},
+          "extra_body": { "reasoning": { "effort": "low" } },
+          "max_output_tokens": 4096,
+          "repair_max_output_tokens": 4096,
+          "price_key": "sonnet-5-5",
+          "structured_output": true,
+        },
+      "mock-oracle":
+        {
+          "id": "mock-oracle",
+          "provider": "mock",
+          "slug": null,
+          "verified": false,
+          "supports_temperature": true,
+          "params": { "temperature": 0 },
+          "extra_body": {},
+          "max_output_tokens": 2048,
+          "price_key": "mock-oracle",
+          "structured_output": false,
+        },
+      "mock-noisy":
+        {
+          "id": "mock-noisy",
+          "provider": "mock",
+          "slug": null,
+          "verified": false,
+          "supports_temperature": true,
+          "params": { "temperature": 0 },
+          "extra_body": {},
+          "max_output_tokens": 2048,
+          "price_key": "mock-noisy",
+          "structured_output": false,
+        },
+    },
+  "fallback_chain": ["sonnet-5-5"],
+  "notes":
+    [
+      "Set gateway URL and model slugs after verification. Reasoning/effort parameter names are unverified; configure extra_body manually.",
+      "Haiku thinking consumes output budget; tokenizer cost must use reported usage.",
+    ],
+  "endpoint_source": "https://openrouter.ai/docs/api/api-reference/chat/create-a-chat-completion",
+}

@@ -1,0 +1,23 @@
+{
+  "review": {
+    "min_confidence": 0.7,
+    "uncertain_band": [
+      0.2,
+      0.8
+    ]
+  },
+  "failure": {
+    "timeout_seconds": 30,
+    "deadline_seconds": 90,
+    "max_retries": 3,
+    "backoff_base": 1,
+    "backoff_multiplier": 2,
+    "jitter": 0.2,
+    "refusal_policy": "escalate_urgent"
+  },
+  "fallback": {
+    "default_priority": "P2"
+  },
+  "safety_net_always_on": false,
+  "concurrency": 4
+}

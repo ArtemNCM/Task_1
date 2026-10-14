@@ -1,0 +1,150 @@
+{
+  "version": "2.0",
+  "categories": {
+    "billing": {
+      "owner": "Finance",
+      "definition": "questions about the user's own charges, unexpected charge, trial → paid, renewal, cancellation, refund, \"paid but credits/features didn't arrive\""
+    },
+    "technical_issue": {
+      "owner": "Tech / QA",
+      "definition": "bugs, crashes, chat not loading, feature broken, login problems, account lockout, email change"
+    },
+    "expert_complaint": {
+      "owner": "Support / Operations",
+      "definition": "dissatisfaction with a consultation, wrong/harmful advice, inappropriate expert behaviour"
+    },
+    "legal_privacy": {
+      "owner": "Legal",
+      "definition": "account/data deletion, copy of personal data (GDPR), formal legal letters"
+    },
+    "general_question": {
+      "owner": "Support",
+      "definition": "how-to, how a feature works, general pricing questions (\"how much is Premium\")"
+    },
+    "feedback": {
+      "owner": "Product (ads/mailing → Marketing)",
+      "definition": "feature requests, UX ideas, praise/criticism, complaints about ads, unsubscribe from mailings"
+    },
+    "other": {
+      "owner": "Support",
+      "definition": "spam, irrelevant, unclear, job inquiries; also pure safety messages with no topical category"
+    }
+  },
+  "precedence": [
+    "legal_privacy",
+    "billing",
+    "expert_complaint",
+    "technical_issue",
+    "general_question",
+    "feedback",
+    "other"
+  ],
+  "markers": {
+    "self_harm": {
+      "tier": "P0",
+      "definition": "the author expresses intent, plan or ideation to harm/kill **themselves**. NOT: quoting what someone else said to them, figures of speech (\"this app is killing me\"), anger at an expert who said something harmful.",
+      "positive": "I am planning to end my own life tonight.",
+      "negative": "That slow loading screen is killing me."
+    },
+    "threat_of_violence": {
+      "tier": "P0",
+      "definition": "the author threatens or states intent to physically harm **another person**. NOT: hyperbole about a company or a review (\"I'll destroy this company\" clarified as a bad review), anger without a threat.",
+      "positive": "I intend to punch the consultant when I find him.",
+      "negative": "I will ruin your rating with an honest review."
+    },
+    "legal_threat": {
+      "tier": "P1",
+      "definition": "author says they will involve a lawyer, court, regulator or consumer-protection body.",
+      "positive": "My solicitor will file a claim over this.",
+      "negative": "Where can I read the terms of service?"
+    },
+    "chargeback_mentioned": {
+      "tier": "P1",
+      "definition": "author says they will dispute/reverse the payment with their bank or card issuer, or uses the word chargeback in that sense.",
+      "positive": "I am asking my card issuer to reverse this transaction.",
+      "negative": "Which bank cards can I use?"
+    },
+    "money_lost": {
+      "tier": "P1",
+      "definition": "author reports or questions a charge they consider unexpected, unclear or duplicate, or says they paid and did not receive what they paid for. NOT: a plain price question; a plain refund request for an understood charge; a plain cancellation.",
+      "positive": "Two identical charges appeared for one purchase.",
+      "negative": "Please refund the session I knowingly purchased."
+    },
+    "minor_suspected": {
+      "tier": "P1",
+      "definition": "the ticket indicates the account user/payer is, or may be, under 18 (self-declared age; parent reporting that a child used the card/app).",
+      "positive": "My thirteen-year-old purchased a reading.",
+      "negative": "I bought a reading for my adult daughter."
+    },
+    "expert_misconduct": {
+      "tier": "P1",
+      "definition": "the expert was abusive/insulting/inappropriate, or gave dangerous/harmful advice (e.g. told someone to stop prescribed treatment). NOT: mere disagreement, a useless or inaccurate-but-polite consultation, lateness.",
+      "positive": "The adviser told me to abandon my prescribed medication.",
+      "negative": "The polite adviser offered predictions that were inaccurate."
+    },
+    "aggressive_tone": {
+      "tier": "P2",
+      "definition": "hostile, insulting or rage-filled language aimed at the company/product. NOT: mild frustration or terse writing. Never sufficient alone for P1.",
+      "positive": "Your whole team are lying idiots!",
+      "negative": "This delay is disappointing."
+    },
+    "repeat_contact": {
+      "tier": "P2",
+      "definition": "the problem/request has recurred or the author already contacted support about it (\"again\", \"second/third time\", \"asked yesterday\", \"I cancelled last week but I was charged again\").",
+      "positive": "This is my fourth request about the same error.",
+      "negative": "This error appeared for the first time today."
+    },
+    "service_blocked": {
+      "tier": "P2",
+      "definition": "author says a paid feature/purchased item is unavailable, or the account is locked/blocked. NOT: an ordinary login failure or a crash with no payment/lock context.",
+      "positive": "My purchased reading cannot be opened.",
+      "negative": "The app crashed once on the welcome screen."
+    },
+    "churn_risk": {
+      "tier": "P2",
+      "definition": "author threatens to leave, stop using, or delete the app.",
+      "positive": "I will stop using your service if this continues.",
+      "negative": "How do I update the app?"
+    },
+    "privacy_request": {
+      "tier": "P2",
+      "definition": "author asks for deletion of account/data, a copy of data, or other data-protection rights.",
+      "positive": "Send me a copy of all my personal information.",
+      "negative": "Where is the privacy policy?"
+    },
+    "refund_requested": {
+      "tier": null,
+      "definition": "author explicitly asks for money back. NOT when they explicitly say they do not want a refund.",
+      "positive": "Return the money for my consultation, please.",
+      "negative": "I do not want my money back; explain the receipt."
+    },
+    "cancellation_requested": {
+      "tier": null,
+      "definition": "author asks to cancel the subscription / stop renewals.",
+      "positive": "Please stop renewing my plan.",
+      "negative": "When will my plan renew?"
+    },
+    "insufficient_info": {
+      "tier": null,
+      "definition": "not enough information to classify or act (gibberish, one vague line, unclear whether payment succeeded).",
+      "positive": "Something is wrong, help.",
+      "negative": "My password reset link expired after five minutes."
+    }
+  },
+  "boundary_rules": "- Money charged but product/credits not received → `billing`.\n- Question about the user's own charges → `billing`; generic \"how much does X cost\" → `general_question`.\n- Not enough information to classify → `other` + action marker `insufficient_info` (but if the topic is clear and only details are missing, e.g. \"I paid but not sure if it went through\", keep the topical category and add `insufficient_info`).\n- Mixed tickets: `primary_category` is the one with the highest stakes; the rest go to `secondary_categories` (max 2, never include the primary). Precedence, highest first:\n  `legal_privacy > billing > expert_complaint > technical_issue > general_question > feedback > other`.\n- A pure safety message (self-harm) with no topical content → `other` (the P0 marker drives everything).",
+  "human_markers": [
+    "legal_threat",
+    "chargeback_mentioned",
+    "minor_suspected",
+    "expert_misconduct"
+  ],
+  "routes": {
+    "billing": "route_finance",
+    "technical_issue": "route_tech_qa",
+    "expert_complaint": "route_support_operations",
+    "legal_privacy": "route_legal",
+    "general_question": "route_support",
+    "feedback": "route_product",
+    "other": "route_support"
+  }
+}

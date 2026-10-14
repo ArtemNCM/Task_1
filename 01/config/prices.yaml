@@ -1,0 +1,42 @@
+{
+  "haiku-5-5": {
+    "input_per_mtok": 0.1,
+    "output_per_mtok": 0.5,
+    "cached_input_per_mtok": 0.01,
+    "as_of": "2026-10-12",
+    "source": "OpenRouter model catalog https://openrouter.ai/api/v1/models (per-token values converted to USD/MTok)",
+    "verified": true
+  },
+  "gpt-6-luna": {
+    "input_per_mtok": 0.1,
+    "output_per_mtok": 0.5,
+    "cached_input_per_mtok": 0.01,
+    "as_of": "2026-10-12",
+    "source": "OpenRouter model catalog https://openrouter.ai/api/v1/models (per-token values converted to USD/MTok)",
+    "verified": true
+  },
+  "gemini-3-8-flash": {
+    "input_per_mtok": 0.75,
+    "output_per_mtok": 3.75,
+    "cached_input_per_mtok": 0.075,
+    "as_of": "2026-10-12",
+    "source": "OpenRouter model catalog https://openrouter.ai/api/v1/models (per-token values converted to USD/MTok)",
+    "verified": true
+  },
+  "sonnet-5-5": {
+    "input_per_mtok": 2.0,
+    "output_per_mtok": 10.0,
+    "cached_input_per_mtok": 0.1,
+    "as_of": "2026-10-12",
+    "source": "OpenRouter model catalog https://openrouter.ai/api/v1/models (per-token values converted to USD/MTok)",
+    "verified": true
+  },
+  "jev-1.13.0": {
+    "input_per_mtok": 0.042,
+    "output_per_mtok": 0,
+    "cached_input_per_mtok": null,
+    "as_of": "2026-10-12",
+    "source": "User build specification; unverified seed",
+    "verified": false
+  }
+}
